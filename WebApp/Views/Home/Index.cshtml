@@ -1,0 +1,12 @@
+﻿@* <partial name="~/Views/Shared/Sections/_Showcase.cshtml"  /> *@
+
+@model HomeIndexViweModel
+
+
+@await Html.PartialAsync("~/Views/Shared/Sections/_Showcase.cshtml",Model.Showcase)
+
+
+<section id="features">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_Features.cshtml")
+</section>
+
