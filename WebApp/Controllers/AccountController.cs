@@ -14,8 +14,11 @@ namespace WebApp.Controllers
             ViewData["Title"] = "Sign In";
             return View();
         }
+
+        [Route("/signup")]
         public ActionResult SignUp()
         {
+            
             ViewData["Title"] = "Sign Up";
             return View();
         }
