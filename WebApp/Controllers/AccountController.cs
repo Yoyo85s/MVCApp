@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -18,9 +19,9 @@ namespace WebApp.Controllers
         [Route("/signup")]
         public ActionResult SignUp()
         {
-            
-            ViewData["Title"] = "Sign Up";
-            return View();
+            var viewmodel = new SignUpViewModel();
+            //ViewData["Title"] = "Sign Up";
+            return View(viewmodel);
         }
         public new ActionResult SignOut()
         {
