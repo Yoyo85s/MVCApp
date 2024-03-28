@@ -17,11 +17,21 @@ namespace WebApp.Controllers
         }
 
         [Route("/signup")]
+        [HttpGet]
         public ActionResult SignUp()
         {
             var viewmodel = new SignUpViewModel();
-            //ViewData["Title"] = "Sign Up";
             return View(viewmodel);
+        }
+
+        [Route("/signup")]
+        [HttpPost]
+        public ActionResult SignUp(SignUpViewModel viemodel)
+        {
+            if (!ModelState.IsValid) 
+            return View(viemodel);
+
+            return RedirectToAction("SignIn", "Account");
         }
         public new ActionResult SignOut()
         {
