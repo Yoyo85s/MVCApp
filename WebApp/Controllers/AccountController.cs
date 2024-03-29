@@ -10,7 +10,7 @@ namespace WebApp.Controllers
             ViewData["Title"] = "Profile";
             return View();
         }
-        
+
         [Route("/signup")]
         [HttpGet]
         public ActionResult SignUp()
@@ -23,14 +23,14 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult SignUp(SignUpViewModel viewModel)
         {
-            if (!ModelState.IsValid) 
-            return View(viewModel);
+            if (!ModelState.IsValid)
+                return View(viewModel);
 
             return RedirectToAction("SignIn", "Account");
         }
         public new ActionResult SignOut()
         {
-            return RedirectToAction ("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [Route("/signin")]
@@ -47,13 +47,19 @@ namespace WebApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-                viewModel.ErrorMessage = "Incorrect email or password"; 
+                viewModel.ErrorMessage = "Incorrect email or password";
                 return View(viewModel);
             }
-                
+
 
             return RedirectToAction("Account", "Index");
         }
 
+        //private readonly AccountService _AccountService;
+
+        //public AccountController(AccountService accountService)
+        //{
+        //    _AccountService = accountService;
+        //}
     }
 }
