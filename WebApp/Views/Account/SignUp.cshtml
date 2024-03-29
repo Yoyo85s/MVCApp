@@ -6,67 +6,67 @@
 <div class="container mt-5">
 
     
-        <form method="post" asp-controller="Account" asp-action="SignUp" novalidate>
+     <form method="post" asp-controller="Account" asp-action="SignUp" novalidate>
             
-        </form>
+        
     
 
-    <form class="row g-3 justify-content-md-center mt-1" method="post" asp-controller="Account" asp-action="SignUp" novalidate>
-        <div class="row g-3 justify-content-md-center">
-        <h1 class="col-md-8">Create Account</h1>
-        <p class="col-md-8">Already have an account? <a asp-controller="Account" asp-action="SignIn">Sign in here.</a></p>
-        </div>
+        <div class="row g-3 justify-content-md-center mt-1" method="post" asp-controller="Account" asp-action="SignUp" novalidate>
+            <div class="row g-3 justify-content-md-center">
+            <h1 class="col-md-8">Create Account</h1>
+            <p class="col-md-8">Already have an account? <a asp-controller="Account" asp-action="SignIn">Sign in here.</a></p>
+            </div>
 
 
 
-        <div class="col-md-4">
+            <div class="col-md-4">
             <label asp-for=Form.FirstName></label>
             <span asp-validation-for="Form.FirstName" class="form-text"></span>
             <input asp-for="Form.FirstName" class="form-control "  >
             
-        </div>
+            </div>
 
-        <div class="col-md-4">
+            <div class="col-md-4">
             <label asp-for=Form.LastName></label>
             <span asp-validation-for="Form.LastName" class="form-text"></span>
             <input asp-for="Form.LastName" class="form-control " >
             
-        </div>
+            </div>
 
-        <div class="col-md-8">
+            <div class="col-md-8">
             <label asp-for=Form.Email></label>
             <span asp-validation-for="Form.Email" class="form-text"></span>
             <input asp-for="Form.Email" class="form-control ">
             
-        </div>
+            </div>
 
-        <div class="col-md-8">
+            <div class="col-md-8">
             <label asp-for=Form.Password></label>
             <span asp-validation-for="Form.Password" class="form-text"></span>
             <input asp-for="Form.Password" type="password" class="form-control " >
             
-        </div>
+            </div>
 
-        <div class="col-md-8">
+            <div class="col-md-8">
             <label asp-for=Form.ConfirmPassword></label>
             <span asp-validation-for="Form.ConfirmPassword" class="form-text"></span>
             <input asp-for="Form.ConfirmPassword" type="password" class="form-control " >
             
-        </div>
+            </div>
 
-        <div class="col-md-8">
+            <div class="col-md-8">
             <div class="form-check">
                 <input asp-for="Form.TermsAndConditions">
                 <label asp-for="Form.TermsAndConditions">I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> & <a asp-controller="About" asp-action="Conditions">Conditions</a>.</label>
                 <span asp-validation-for="Form.TermsAndConditions"></span>
                
             </div>
-        </div>
+            </div>
 
-        <div class="col-8 d-grid">
+            <div class="col-8 d-grid">
             <button asp-controller="Account" asp-action="SignUp" class="btn btn-theme-s" type="submit">@Model.Title</button>
+            </div>
+
         </div>
-
     </form>
-
 </div>
