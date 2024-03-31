@@ -1,5 +1,7 @@
 ﻿@* <partial name="~/Views/Shared/Sections/_Showcase.cshtml"  /> *@
-
+@{
+    ViewData["Title"] = "Index";
+}
 @model HomeIndexViweModel
 
 
@@ -9,4 +11,6 @@
 <section id="features">
     @await Html.PartialAsync("~/Views/Shared/Sections/_Features.cshtml")
 </section>
+
+
 
