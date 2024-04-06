@@ -1,0 +1,146 @@
+﻿@model AccountDetailsViewModel
+
+@{
+    ViewData["Title"] = $"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile";
+}
+
+<body>
+    <section id="account-details">
+        <div class="container mt-5">
+
+            <aside class="main-info">
+                <div class="images">
+                    <img class="profile-img" src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile")">
+                    <img class="refresh-icon" src="images/icons/refresh-icon.svg" alt="">
+                </div>
+                <h5>@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile")</h5>
+                <p>@Model.BasicInfo.Email</p>
+                <div class="buttons">
+                    <button class="btn btn-theme"asp-controller="Account"asp-action="Details"><i class="fa-light fa-gear"></i>Account details</button>
+                    <button class="btn btn-gray fw-semibold" asp-controller="Account"asp-action="SignOut">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i>Sign out
+                    </button>
+                </div>
+            </aside>
+
+            <form class="row g-3 justify-content-md-center" method="post" asp-controller="Account" asp-action="BasicInfo">
+                <h2>Account Details</h2>
+                <h5>Basic Info</h5>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold" asp-for="BasicInfo.FirstName" >First name</label>
+                    <input asp-for="BasicInfo.FirstName" class="form-control" id="firstName" placeholder="">
+                    <span asp-validation-for="BasicInfo.FirstName"></span>
+                   
+                </div>
+                <div class="col-md-6">
+                    <label for="InputLastName" class="form-label fw-semibold">Last name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label for="InputEmail" class="form-label fw-semibold">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-6">
+                    <label for="InputPhoneNumber" class="form-label fw-semibold">Phone</label>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone">
+                </div>
+                <div class="col-md-12">
+                    <span class="input-bio fw-semibold">Bio (optional)</span>
+                    <textarea class="form-control" placeholder="Add a short bio.." name="" id="" cols="30" rows="5"></textarea>
+                </div>
+                <div class="col-12 submit-buttons">
+                    <button type="submit" class="btn btn-gray fw-semibold">Cancel</button>
+                    <button type="submit" class="btn btn-theme">Save changes</button>
+                </div>
+                <h5 class="address">Address</h5>
+                <div class="col-md-12">
+                    <label for="inputAddress" class="form-label fw-semibold">Address line 1</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="col-md-12">
+                    <label for="inputAddress2" class="form-label fw-semibold">Address line 2</label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                           placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPostalCode" class="form-label fw-semibold">Postal code</label>
+                    <input type="text" class="form-control" id="inputPostalCode" placeholder="Enter your postal code">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label fw-semibold">City</label>
+                    <input type="text" class="form-control" id="inputCity" placeholder="Enter your city">
+                </div>
+                <div class="col-12 submit-buttons">
+                    <button type="submit" class="btn btn-gray fw-semibold">Cancel</button>
+                    <button type="submit" class="btn btn-theme">Save changes</button>
+                </div>
+            </form>
+
+        </div>
+        <hr />
+        <form method="post" asp-controller="Account" asp-action="AdressInfo"></form>
+    </section>
+</body>
+
+
+@* <section id="account-details">
+    <aside>
+        <div class="profile-info">
+            <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")">
+            <h5>@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")</h5>
+            <p>@Model.BasicInfo.Email</p>
+        </div>
+
+        <nav>
+            <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
+            <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+        </nav>
+    </aside>
+
+    <div class="details">
+        <section class="basic-info">
+            <form method="post" asp-controller="Account" asp-action="BasicInfo">
+                <h2>Account Details</h2>
+                <h5>Basic Info</h5>
+
+                <div class="content">
+                    <div id="form-firstname" class="input-group">
+                        <label asp-for="BasicInfo.FirstName"></label>
+                        <span asp-validation-for="BasicInfo.FirstName"></span>
+                        <input asp-for="BasicInfo.FirstName" />
+                    </div>
+
+                    <div id="form-lastname" class="input-group">
+                        <label asp-for="BasicInfo.LastName"></label>
+                        <span asp-validation-for="BasicInfo.LastName"></span>
+                        <input asp-for="BasicInfo.LastName" />
+                    </div>
+
+                    <div id="form-email" class="input-group">
+                        <label asp-for="BasicInfo.Email"></label>
+                        <span asp-validation-for="BasicInfo.Email"></span>
+                        <input asp-for="BasicInfo.Email" />
+                    </div>
+
+                    <div id="form-phone" class="input-group">
+                        <label asp-for="BasicInfo.Phone"></label>
+                        <span asp-validation-for="BasicInfo.Phone"></span>
+                        <input asp-for="BasicInfo.Phone" />
+                    </div>
+
+                    <div id="form-bio" class="input-group">
+                        <label asp-for="BasicInfo.Biography">Bio<span>(optional)</span></label>
+                        <textarea asp-for="BasicInfo.Biography"></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button class="btn-gray" type="reset">Cancel</button>
+                        <button class="btn-theme" type="submit">Save changes</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</section>
+ *@
