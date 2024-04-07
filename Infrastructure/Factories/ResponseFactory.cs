@@ -13,7 +13,7 @@ public class ResponseFactory
         };
     }
 
-    public static ResponseResult Ok(string?, string? message = null)
+    public static ResponseResult Ok(string? message = null)
     {
         return new ResponseResult
         {
