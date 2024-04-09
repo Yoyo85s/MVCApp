@@ -11,7 +11,6 @@ public class AddressFactory
         try
         {
             return new AddressEntity();
-            
         }
         catch { }
         return null!;
